@@ -6,12 +6,14 @@ import android.arch.persistence.room.DatabaseConfiguration;
 import android.arch.persistence.room.InvalidationTracker;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
+import android.arch.persistence.room.TypeConverters;
 import android.content.Context;
 
 import Utils.Constants;
 
 
 @Database(entities = {Note.class},version = 1,exportSchema = false)
+@TypeConverters({Converters.class})
 public abstract class NoteDatabase extends RoomDatabase {
 
     public abstract NoteDao getNoteDao();
